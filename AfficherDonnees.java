@@ -18,7 +18,7 @@ public class AfficherDonnees extends JFrame {
 	
 	public AfficherDonnees(){
 		
-		// On définit les paramètres de base d'une fenêtre :
+		// On définit les paramètres de base d'une fenêtre (le titre, la taille...) :
 		this.setTitle("AfficherDonnees - fenêtre java");
 		this.setLocation(660, 280);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
