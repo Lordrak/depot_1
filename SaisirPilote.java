@@ -52,7 +52,6 @@ public class SaisirPilote extends JFrame {
 
 	class btn_valider_action implements ActionListener{
 		public void actionPerformed(ActionEvent e) {
-			System.out.println("Valide");
 			
 			try {
 				Connection connexion = DriverManager.getConnection

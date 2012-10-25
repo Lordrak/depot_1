@@ -11,7 +11,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
-/* commentaire */
+
 public class AfficherDonnees extends JFrame {
 	
 	private JTable tbl_Tableau;
@@ -30,11 +30,14 @@ public class AfficherDonnees extends JFrame {
 			("jdbc:postgresql:bdseb", "ssabatier", "noisette");
 
 			Statement unStatement = connexion.createStatement();
-			ResultSet resultat = unStatement.executeQuery("SELECT * FROM Pilotes;");
 			
-			int nb = resultat.getFetchSize();
+			ResultSet chercherTaille = unStatement.executeQuery("SELECT Count(*) FROM Pilotes;");
+			chercherTaille.next();
+			int taille = chercherTaille.getInt(1);
+			
+			ResultSet resultat = unStatement.executeQuery("SELECT * FROM Pilotes;");
 				
-			Object[][] data = new Object[nb][3];
+			Object[][] data = new Object[taille][3];
 			String[] title = {"Numéro", "Nom", "Prenom"};
 
 			int i = 0;
@@ -51,6 +54,8 @@ public class AfficherDonnees extends JFrame {
 			tbl_Tableau = new JTable(data, title);
 		    this.getContentPane().add(new JScrollPane(tbl_Tableau));	
 			
+		    resultat.close();
+		    chercherTaille.close();
 			connexion.close();
 		}
 		catch(SQLException e1){
