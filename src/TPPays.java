@@ -16,7 +16,7 @@ public class TPPays {
 		unPays.ajouterVille(marseille);
 		unPays.ajouterVille(lyon);
 		unPays.ajouterVille(evry);
-		System.out.println("un truc au pif");
+		System.out.println("un autre truc au pif");
 		System.out.println(Pays.getComteurPays());
 		System.out.println(Pays.getComteurPays());
 		System.out.println(uneCapitale.getNomMaj());
